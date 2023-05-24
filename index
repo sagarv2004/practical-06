@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Image Gallery</title>
+ <style>
+  .container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   margin: 20px auto;
+   max-width: 1000px;
+  }
+
+  .container img {
+   width: 300px;
+   height: 200px;
+   margin: 10px;
+   object-fit: cover;
+   border-radius: 5px;
+   cursor: pointer;
+   box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+   transition: all 0.3s ease-in-out;
+  }
+
+  .container img:hover {
+   transform: scale(1.1);
+   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  }
+
+  .modal {
+   display: none;
+   position: fixed;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background-color: rgba(0,0,0,0.9);
+  }
+
+  .modal-content {
+   margin: auto;
+   display: block;
+   width: 80%;
+   max-width: 700px;
+   max-height: 80%;
+  }
+
+  .modal-content img {
+   width: 100%;
+   height: auto;
+   object-fit: contain;
+  }
+
+  .close {
+   position: absolute;
+   top: 15px;
+   right: 35px;
+   color: #f1f1f1;
+   font-size: 40px;
+   font-weight: bold;
+   cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+   color: #bbb;
+   text-decoration: none;
+   cursor: pointer;
+  }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <img src="Downloads/123.jpg"Image 1" onclick="openModal(this)">
+  <img src="Downloads/4203263.png" alt="Image 2" onclick="openModal(this)">
+  <img src="Downloads/goku.webp" alt="Image 3" onclick="openModal(this)">
+  <img src="Downloads/your name.jpg" alt="Image 4" onclick="openModal(this)">
+  <img src="Downloads/vegeta.webp" alt="Image 5" onclick="openModal(this)">
+  <img src="Downloads/Naruto-happy-in-Shippuden.avif" alt="Image 6" onclick="openModal(this)">
+ </div>
+
+ <div id="myModal" class="modal">
+   <span class="close" onclick="closeModal()">&times;</span>
+   <img class="modal-content" id="img01">
+ </div>
+
+ <script>
+  function openModal(img) {
+   var modal = document.getElementById("myModal");
+   var modalImg = document.getElementById("img01");
+   modal.style.display = "block";
+   modalImg.src = img.src;
+  }
+
+  function closeModal() {
+   var modal = document.getElementById("myModal");
+   modal.style.display = "none";
+  }
+ </script>
+</body>
+</html>
